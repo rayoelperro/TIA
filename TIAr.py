@@ -41,6 +41,17 @@ def listener():
     except:
         return ""
 
+def frenchlistener():
+    r = sr.Recognizer()
+    with sr.Microphone() as source:
+        r.adjust_for_ambient_noise(source)
+        print(":")
+        audio = r.listen(source)
+    try:
+        return r.recognize_google(audio, language="fr-FR")
+    except:
+        return ""
+
 def analize(words):
     sintax = TIAb.getTipePhrase(len(words))(words)
     sintax.sintax()

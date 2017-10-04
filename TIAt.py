@@ -1,6 +1,5 @@
-import TIAg
-t = TIAg.TextReader()
-text = t.readandclose()
-print text
-import TIAi
-print TIAi.isPIPInstall()
+import TIAr
+
+while True:
+    raw_input()
+    print TIAr.frenchlistener()
