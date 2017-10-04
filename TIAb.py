@@ -1,5 +1,7 @@
+import os
 import TIAi
 import TIAg
+
 saludo = lambda nm: "Hola, " + nm
 encantado = lambda nm: "Encantado, " + nm
 
@@ -25,6 +27,7 @@ class oneW:
             TIAg.decir(TIAi.saves[self.word])
         elif self.word == "recita":
             TIAg.decir(TIAg.readtext())
+
 class twoW:
     def __init__(self,words):
         self.words = words
@@ -44,6 +47,7 @@ class twoW:
                 TIAg.decir(TIAi.info["name"])
             else:
                 TIAg.decir(Sintax(self.words[1]))
+
 class threeW:
     def __init__(self,words):
         self.words = words
@@ -52,6 +56,9 @@ class threeW:
             toasay = TIAg.readtext()
             for x in range(0,int(self.words[1])):
                 TIAg.decir(toasay)
+        if self.words[0] == "ejecutar":
+            if self.words[1] == "comando":
+                os.system(self.words[2])
 
 class fourW:
     def __init__(self,words):
@@ -65,6 +72,7 @@ class fourW:
             TIAi.saves[self.words[3]] = TIAg.leerarchivo()
         elif self.words[0] == "registrar" and self.words[1] == "texto" and self.words[2] == "como":
             TIAi.saves[self.words[3]] = TIAg.readtext()
+
 class moreW:
     def __init__(self,words):
         self.words = words
